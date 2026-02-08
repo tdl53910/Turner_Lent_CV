@@ -1,55 +1,18 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/08mBujqq)
-# CSS Resume Assignment
+like this:
 
-In this assignment, you will style a resume website using CSS. 
+# Turner Lent — Web-Based CV
 
----
+This repository contains the source code for my personal, web-based CV.  
+The site presents my academic background, technical skills, research experience, and leadership roles in a clean, responsive format.
 
-## Provided Files
+Built with semantic HTML and custom CSS, the CV is optimized for desktop, mobile, and print, allowing it to function both as an online portfolio and a printable resume.
 
-- `style.css`: a template css file linked in index.html and contact.html 
-- `index.html`: a template shell with css file linked
-- `contact.html`: a template shell with css file linked
+## Features
+- Responsive layout for desktop and mobile devices
+- Custom CSS styling with a clean, professional aesthetic
+- Print-optimized styles for PDF or hard-copy resume export
+- Separate contact page for outreach and professional inquiries
 
----
-## Part 1: Project Setup
-
-- Copy the contents of your completed `index.html` from the html assignment into the provided `index.html` template. (Keep the link to style.css.)
-- Copy the contents of your completed `contact.html` from the html assignment into the provided `contact.html` template file. (Keep the link to style.css.)
-- Copy the images from your completed html project to the images folder
-
-## Part 2: Create!
-
-Style your cv following these [step-by-step instructions](https://docs.google.com/document/d/1_Zpam8eycWh1wazH-_V9HGNCaHtEF6mf9KnPqqevdew/edit?usp=sharing). (20 pts)
-
-### Part 3: Testing locally
-
-After you have completed the style.css file.  You may run the test scripts locally by:
-
-1. Install the tools by running:
-
-   `npm install`
-
-2. Run the test scripts:
-   
-   `npm test`
-
-3. Repeat `npm test` until all tests are passed.
-
-### Part 4: Publish your cv on your personal GitHub pages
-
-1. **Publish your CV on GitHub pages **
-
-You are to publish your CV to your own GitHub pages site. This is **NOT** your classroom repo created in our CSCI4300-Web-Programming organization. [instructions](https://docs.google.com/document/d/1_Zpam8eycWh1wazH-_V9HGNCaHtEF6mf9KnPqqevdew/edit?usp=sharing) for publishing on GitHub are linked.
-
-2. **Provide the link on the class Google sheet** 
-
-The link to the Google sheet is provided in the instructions sheet linked above.
-
-### Part 5: Submit your assignment - git push
-1. commit 
-  commit your changes with appropriate commit message
-2. submit - **git push**
-  submit your cv - `git push` 
-
-
+## Technologies Used
+- HTML5
+- CSS3
