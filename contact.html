@@ -4,56 +4,187 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Turner D. Lent</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Contact | Turner D. Lent</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
   </head>
   <body>
-
-    <nav>
-      <p>Turner D. Lent</p>
-      <p>
-        <a href="index.html">About Turner D. Lent</a>
-      </p>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="index.html" class="logo-link">
+            <span class="logo-text">Turner D. Lent</span>
+          </a>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#experience">Experience</a></li>
+          <li><a href="index.html#skills">Skills</a></li>
+          <li><a href="index.html#projects">Projects</a></li>
+          <li><a href="contact.html" class="nav-contact-btn active">Contact</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
     </nav>
 
-    <header>
-      <h1>Turner D. Lent</h1>
+    <!-- Contact Hero -->
+    <header class="contact-hero">
+      <div class="container">
+        <h1 class="contact-title">Get In Touch</h1>
+        <p class="contact-subtitle">I'm always open to discussing new opportunities, collaborations, or just chatting about technology and law.</p>
+      </div>
     </header>
 
-    <p class="address">
-      Athens, GA 30602 &bull; (850)358-0265 &bull; turner.lent@uga.edu
-    </p>
+    <main class="contact-main">
+      <div class="container">
+        <div class="contact-grid">
+          <!-- Contact Info -->
+          <div class="contact-info">
+            <div class="contact-card">
+              <div class="contact-card-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <h3>Email</h3>
+              <p>turner.lent@uga.edu</p>
+              <a href="mailto:turner.lent@uga.edu" class="contact-action">
+                Send Email <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+            
+            <div class="contact-card">
+              <div class="contact-card-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <h3>Phone</h3>
+              <p>(850) 358-0265</p>
+              <a href="tel:+18503580265" class="contact-action">
+                Call Now <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+            
+            <div class="contact-card">
+              <div class="contact-card-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <h3>Location</h3>
+              <p>Athens, GA 30602</p>
+              <a href="https://maps.google.com/?q=Athens,GA" target="_blank" class="contact-action">
+                View on Map <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+            
+            <div class="contact-card">
+              <div class="contact-card-icon">
+                <i class="fab fa-linkedin"></i>
+              </div>
+              <h3>LinkedIn</h3>
+              <p>Connect Professionally</p>
+              <a href="https://www.linkedin.com/in/turner-lent" target="_blank" class="contact-action">
+                Visit Profile <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
 
-    <p class="tagline">
-      Computer Science and Artificial Intelligence student focused on technology,
-      policy, and leadership.
-    </p>
+          <!-- Contact Form -->
+          <div class="contact-form-container">
+            <div class="form-header">
+              <h2>Send a Message</h2>
+              <p>Fill out the form below and I'll get back to you as soon as possible.</p>
+            </div>
+            
+            <form id="contactForm" method="POST" action="https://formsubmit.co/turner.lent@uga.edu" class="contact-form">
+              <div class="form-group">
+                <label for="name">Full Name *</label>
+                <div class="input-with-icon">
+                  <i class="fas fa-user"></i>
+                  <input type="text" id="name" name="name" required placeholder="John Smith">
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <div class="input-with-icon">
+                  <i class="fas fa-envelope"></i>
+                  <input type="email" id="email" name="email" required placeholder="john@example.com">
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <div class="input-with-icon">
+                  <i class="fas fa-tag"></i>
+                  <input type="text" id="subject" name="subject" placeholder="How can I help you?">
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="message">Message *</label>
+                <div class="textarea-with-icon">
+                  <i class="fas fa-comment"></i>
+                  <textarea id="message" name="message" rows="6" required placeholder="Your message here..."></textarea>
+                </div>
+              </div>
+              
+              <div class="form-footer">
+                <button type="submit" class="btn btn-primary btn-submit">
+                  <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+                <p class="form-note">* Required fields</p>
+              </div>
+              
+              <!-- FormSubmit Configuration -->
+              <input type="hidden" name="_subject" value="New Contact Form Submission">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
+            </form>
+            
+            <div id="formSuccess" class="form-success" style="display: none;">
+              <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <h3>Message Sent Successfully!</h3>
+              <p>Thank you for reaching out. I'll get back to you within 24-48 hours.</p>
+              <a href="index.html" class="btn btn-outline">
+                <i class="fas fa-arrow-left"></i> Back to Home
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
 
-    <hr>
-
-    <section class="one-col">
-      <form method="POST" action="https://formsubmit.co/turner.lent@uga.edu">
-        <label>
-          Name:
-          <input type="text" name="name" required>
-        </label>
-
-        <label>
-          Email:
-          <input type="email" name="email" required>
-        </label>
-
-        <label>
-          Message:
-          <textarea name="message" rows="4"></textarea>
-        </label>
-
-        <button type="submit">Send</button>
-      </form>
-    </section>
-
-    <footer>
-      <p>&copy; <a href="index.html">Turner D. Lent</a></p>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <h3>Turner D. Lent</h3>
+            <p>Computer Science & Artificial Intelligence</p>
+          </div>
+          <div class="footer-links">
+            <a href="index.html#about">Education</a>
+            <a href="index.html#experience">Experience</a>
+            <a href="index.html#skills">Skills</a>
+            <a href="index.html#projects">Projects</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div class="footer-copyright">
+            <p>Athens, GA 30602 | turner.lent@uga.edu</p>
+          </div>
+        </div>
+      </div>
     </footer>
 
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
   </body>
 </html>

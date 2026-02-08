@@ -4,129 +4,431 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Turner D. Lent</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Turner D. Lent | Computer Science & AI Student</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
   </head>
   <body>
-
-    <nav>
-      <p>Turner D. Lent</p>
-      <p>
-        <a href="contact.html">Contact Turner D. Lent</a>
-      </p>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <span class="logo-text">Turner D. Lent</span>
+          <span class="logo-tagline">CS & AI Student</span>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="contact.html" class="nav-contact-btn">Contact</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
     </nav>
 
-    <header>
-      <h1>Turner D. Lent</h1>
-      <img
-        src="images/headshot.jpg"
-        alt="Headshot of Turner D. Lent"
-        width="200"
-      >
-    </header>
-
-    <p class="address">
-      Athens, GA 30602 &bull; (850)358-0265 &bull; turner.lent@uga.edu
-    </p>
-
-    <p class="tagline">
-      Computer Science and Artificial Intelligence student focused on technology,
-      policy, and leadership.
-    </p>
-
-    <hr>
-
-    <section>
-      <h3>Education</h3>
-      <dl>
-        <dt>University of Georgia</dt>
-        <dd>3.70</dd>
-        <dt>B.S. Computer Science; Minor in Law, Jurisprudence, and the State</dt>
-        <dd>May 2027</dd>
-      </dl>
-    </section>
-
-    <section>
-      <h3>Honors and Awards</h3>
-      <dl>
-        <dt>Dean’s List</dt>
-        <dd>2023–2025</dd>
-        <dt>Classic Scholarship Recipient</dt>
-        <dd>2023–2025</dd>
-        <dt>Alpha Lambda Delta Honors</dt>
-        <dd>2023</dd>
-        <dt>SAGE Student Recognition – Pre-Law</dt>
-        <dd>2025</dd>
-      </dl>
-    </section>
-
-    <section>
-      <h3>Skills</h3>
-      <ul>
-        <li>Java</li>
-        <li>Python</li>
-        <li>SQL</li>
-        <li>C++</li>
-        <li>HTML</li>
-      </ul>
-    </section>
-
-    <section>
-      <h3>Leadership and Experience</h3>
-      <dl>
-        <dt>
-          <a href="https://sga.uga.edu" target="_blank">
-            Senator, University of Georgia Student Government Association
-          </a>
-        </dt>
-        <dd>Mar 2025–Present</dd>
-
-        <dt>
-          <a href="https://www.franklin.uga.edu" target="_blank">
-            Student Ambassador, Franklin College of Arts and Sciences
-          </a>
-        </dt>
-        <dd>Aug 2025–Present</dd>
-
-        <dt>
-          <a href="https://curo.uga.edu" target="_blank">
-            Artificial Intelligence Researcher, CURO at UGA
-          </a>
-        </dt>
-        <dd>Aug 2025–Present</dd>
-
-        <dt>
-          <a href="https://www.cooktolley.com" target="_blank">
-            Legal Intern, Cook & Tolley LLP
-          </a>
-        </dt>
-        <dd>Aug 2025–Present</dd>
-      </dl>
-    </section>
-
-    <section>
-      <h3>Projects</h3>
-      <div class="three-col">
-        <div class="card">
-          <img src="images/AIproject.jpg" alt="AI project">
-          <p>AI-Based NLP Research Pipeline</p>
+    <!-- Hero Section -->
+    <header class="hero">
+      <div class="hero-container">
+        <div class="hero-text">
+          <h1 class="hero-title">Turner D. Lent</h1>
+          <h2 class="hero-subtitle">
+            <span class="typewriter" id="typewriter"></span>
+            <span class="cursor">|</span>
+          </h2>
+          <p class="hero-description">
+            Computer Science and Artificial Intelligence student at the University of Georgia, 
+            focused on the intersection of technology, law, and leadership.
+          </p>
+          <div class="hero-contact-info">
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Athens, GA 30602</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <span>(850) 358-0265</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>turner.lent@uga.edu</span>
+            </div>
+          </div>
+          <div class="hero-actions">
+            <a href="Turner_Lent_Resume.pdf" target="_blank" class="btn btn-primary">
+              <i class="fas fa-download"></i> Download Resume
+            </a>
+            <a href="#contact" class="btn btn-outline">
+              <i class="fas fa-paper-plane"></i> Get In Touch
+            </a>
+          </div>
         </div>
-        <div class="card">
-          <img src="images/galleryapp.jpg" alt="Gallery app">
-          <p>Gallery Application</p>
-        </div>
-        <div class="card">
-          <img src="images/sunharbor.jpg" alt="Marina website">
-          <p>Website for Coastal Marina Management</p>
+        <div class="hero-image">
+          <div class="image-wrapper">
+            <img
+              src="images/headshot.jpg"
+              alt="Headshot of Turner D. Lent"
+              class="profile-img"
+            >
+            <div class="image-overlay"></div>
+          </div>
         </div>
       </div>
-    </section>
+    </header>
 
-    <footer>
-      <p>&copy; <a href="contact.html">Turner D. Lent</a></p>
-      <a href="https://www.linkedin.com/in/turner-lent" target="_blank">
-        <i class="fa fa-linkedin"></i>
-      </a>
+    <main>
+      <!-- About/Education Section -->
+      <section id="about" class="section about-section">
+        <div class="container">
+          <h2 class="section-title">
+            <i class="fas fa-graduation-cap section-icon"></i>
+            Education & Background
+          </h2>
+          <div class="about-grid">
+            <div class="about-card">
+              <div class="about-card-header">
+                <h3>University of Georgia</h3>
+                <span class="date-badge">Expected May 2027</span>
+              </div>
+              <div class="about-card-body">
+                <h4>B.S. Computer Science · M.S. Artificial Intelligence</h4>
+                <p class="about-detail">Minor: Law, Jurisprudence, and the State</p>
+                <div class="stats-grid">
+                  <div class="stat">
+                    <div class="stat-value">3.70</div>
+                    <div class="stat-label">Overall GPA</div>
+                  </div>
+                  <div class="stat">
+                    <div class="stat-value">4.00</div>
+                    <div class="stat-label">Major GPA</div>
+                  </div>
+                  <div class="stat">
+                    <div class="stat-value">Dean's List</div>
+                    <div class="stat-label">2023–2025</div>
+                  </div>
+                </div>
+                <div class="honors">
+                  <h5>Honors & Awards</h5>
+                  <div class="tags">
+                    <span class="tag">Classic Scholarship (2023–2025)</span>
+                    <span class="tag">Alpha Lambda Delta (2023)</span>
+                    <span class="tag">SAGE Student Recognition – Pre-Law (2025)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="about-card">
+              <div class="about-card-header">
+                <h3>Focus Areas</h3>
+              </div>
+              <div class="about-card-body">
+                <div class="focus-area">
+                  <div class="focus-icon">
+                    <i class="fas fa-robot"></i>
+                  </div>
+                  <div class="focus-content">
+                    <h4>Artificial Intelligence</h4>
+                    <p>Specializing in NLP, machine learning, and AI-driven research</p>
+                  </div>
+                </div>
+                <div class="focus-area">
+                  <div class="focus-icon">
+                    <i class="fas fa-balance-scale"></i>
+                  </div>
+                  <div class="focus-content">
+                    <h4>Technology & Law</h4>
+                    <p>Exploring the intersection of AI, ethics, and legal systems</p>
+                  </div>
+                </div>
+                <div class="focus-area">
+                  <div class="focus-icon">
+                    <i class="fas fa-users"></i>
+                  </div>
+                  <div class="focus-content">
+                    <h4>Leadership</h4>
+                    <p>Student government, ambassador roles, and team leadership</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience" class="section experience-section">
+        <div class="container">
+          <h2 class="section-title">
+            <i class="fas fa-briefcase section-icon"></i>
+            Leadership & Professional Experience
+          </h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">Mar 2025–Present</div>
+              <div class="timeline-content">
+                <h3>
+                  <a href="https://sga.uga.edu" target="_blank" class="timeline-link">
+                    Senator, University of Georgia Student Government Association
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </h3>
+                <ul>
+                  <li>Represent 15,000+ students in Franklin College</li>
+                  <li>Passed legislation establishing Franklin Consulting Group</li>
+                  <li>Improved academic resources and student support systems</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-date">Aug 2025–Present</div>
+              <div class="timeline-content">
+                <h3>
+                  <a href="https://www.franklin.uga.edu" target="_blank" class="timeline-link">
+                    Student Ambassador, Franklin College of Arts and Sciences
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </h3>
+                <ul>
+                  <li>Represent Franklin College at admissions and outreach events</li>
+                  <li>Collaborate with Dean's Office on student affairs initiatives</li>
+                  <li>Mentor prospective and incoming students</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-date">Aug 2025–Present</div>
+              <div class="timeline-content">
+                <h3>
+                  <a href="https://curo.uga.edu" target="_blank" class="timeline-link">
+                    Artificial Intelligence Researcher, CURO at UGA
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </h3>
+                <ul>
+                  <li>Built Java-based NLP pipeline using embeddings and cosine similarity</li>
+                  <li>Implemented PCA for dimensionality reduction and analysis</li>
+                  <li>Presenting research at Midwest Political Science Association Conference (2026)</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-date">Aug 2025–Present</div>
+              <div class="timeline-content">
+                <h3>
+                  <a href="https://www.cooktolley.com" target="_blank" class="timeline-link">
+                    Legal Intern, Cook & Tolley LLP
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </h3>
+                <ul>
+                  <li>Conduct AI-assisted legal research using Lexis+ AI</li>
+                  <li>Assist attorneys with case preparation and document drafting</li>
+                  <li>Analyze legal documents using technology-driven approaches</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="section skills-section">
+        <div class="container">
+          <h2 class="section-title">
+            <i class="fas fa-code section-icon"></i>
+            Technical & Professional Skills
+          </h2>
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h3 class="skill-category-title">
+                <i class="fas fa-laptop-code"></i>
+                Programming
+              </h3>
+              <div class="skill-items">
+                <span class="skill-item" data-level="90">Java</span>
+                <span class="skill-item" data-level="85">Python</span>
+                <span class="skill-item" data-level="80">C++</span>
+                <span class="skill-item" data-level="75">SQL</span>
+                <span class="skill-item" data-level="85">HTML/CSS</span>
+              </div>
+            </div>
+            
+            <div class="skill-category">
+              <h3 class="skill-category-title">
+                <i class="fas fa-brain"></i>
+                AI & Data Science
+              </h3>
+              <div class="skill-items">
+                <span class="skill-item" data-level="85">TensorFlow</span>
+                <span class="skill-item" data-level="80">PyTorch</span>
+                <span class="skill-item" data-level="85">Pandas/NumPy</span>
+                <span class="skill-item" data-level="75">scikit-learn</span>
+                <span class="skill-item" data-level="80">NLP</span>
+              </div>
+            </div>
+            
+            <div class="skill-category">
+              <h3 class="skill-category-title">
+                <i class="fas fa-tools"></i>
+                Tools & Platforms
+              </h3>
+              <div class="skill-items">
+                <span class="skill-item" data-level="90">Git/GitHub</span>
+                <span class="skill-item" data-level="75">Docker</span>
+                <span class="skill-item" data-level="85">VS Code</span>
+                <span class="skill-item" data-level="70">AWS/GCP</span>
+                <span class="skill-item" data-level="80">Jupyter</span>
+              </div>
+            </div>
+            
+            <div class="skill-category">
+              <h3 class="skill-category-title">
+                <i class="fas fa-gavel"></i>
+                Legal Research
+              </h3>
+              <div class="skill-items">
+                <span class="skill-item" data-level="85">LexisNexis</span>
+                <span class="skill-item" data-level="80">Westlaw</span>
+                <span class="skill-item" data-level="75">Bloomberg Law</span>
+                <span class="skill-item" data-level="90">AI-Assisted Research</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="section projects-section">
+        <div class="container">
+          <h2 class="section-title">
+            <i class="fas fa-project-diagram section-icon"></i>
+            Selected Projects
+          </h2>
+          <div class="projects-grid">
+            <div class="project-card" data-aos="fade-up">
+              <div class="project-image">
+                <img src="images/AIproject.jpg" alt="AI Research Project">
+                <div class="project-overlay">
+                  <button class="project-view-btn">View Details</button>
+                </div>
+              </div>
+              <div class="project-content">
+                <h3>AI-Driven NLP Research Pipeline</h3>
+                <p class="project-tech">
+                  <span class="tech-tag">Java</span>
+                  <span class="tech-tag">Embeddings</span>
+                  <span class="tech-tag">PCA</span>
+                  <span class="tech-tag">Semantic Drift</span>
+                </p>
+                <p class="project-description">
+                  Built a comprehensive NLP pipeline for analyzing semantic drift in political discourse using embeddings and dimensionality reduction.
+                </p>
+              </div>
+            </div>
+            
+            <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="project-image">
+                <img src="images/galleryapp.jpg" alt="Gallery Application">
+                <div class="project-overlay">
+                  <button class="project-view-btn">View Details</button>
+                </div>
+              </div>
+              <div class="project-content">
+                <h3>Gallery Application</h3>
+                <p class="project-tech">
+                  <span class="tech-tag">Java</span>
+                  <span class="tech-tag">MVC</span>
+                  <span class="tech-tag">User Management</span>
+                </p>
+                <p class="project-description">
+                  Developed a Java-based gallery application with MVC architecture for efficient user-driven media management and organization.
+                </p>
+              </div>
+            </div>
+            
+            <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+              <div class="project-image">
+                <img src="images/sunharbor.jpg" alt="Marina Management Website">
+                <div class="project-overlay">
+                  <button class="project-view-btn">View Details</button>
+                </div>
+              </div>
+              <div class="project-content">
+                <h3>Coastal Marina Management</h3>
+                <p class="project-tech">
+                  <span class="tech-tag">Web Development</span>
+                  <span class="tech-tag">Client Systems</span>
+                  <span class="tech-tag">Integration</span>
+                </p>
+                <p class="project-description">
+                  Created a comprehensive marina management website with client system integration for efficient coastal operations management.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact CTA Section -->
+      <section id="contact" class="section contact-cta">
+        <div class="container">
+          <div class="cta-card">
+            <h2>Let's Connect</h2>
+            <div class="cta-buttons">
+              <a href="contact.html" class="btn btn-primary btn-lg">
+                <i class="fas fa-envelope"></i> Send a Message
+              </a>
+              <div class="social-links">
+                <a href="https://www.linkedin.com/in/turner-lent" target="_blank" class="social-link">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/tdl53910" target="_blank" class="social-link">
+                  <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:turner.lent@uga.edu" class="social-link">
+                  <i class="fas fa-envelope"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <h3>Turner D. Lent</h3>
+            <p>Computer Science & Artificial Intelligence</p>
+          </div>
+          <div class="footer-links">
+            <a href="#about">Education</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div class="footer-copyright">
+            <p>Athens, GA 30602 | turner.lent@uga.edu</p>
+          </div>
+        </div>
+      </div>
     </footer>
 
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
   </body>
 </html>
