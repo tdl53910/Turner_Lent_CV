@@ -326,15 +326,6 @@ a {
   transition: var(--transition);
 }
 
-.image-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(45deg, rgba(186, 12, 47, 0.2) 0%, rgba(44, 62, 80, 0.2) 100%);
-}
-
 /* ============================================================
    SECTIONS
    ============================================================ */
