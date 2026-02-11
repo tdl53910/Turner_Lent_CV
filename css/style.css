@@ -682,7 +682,7 @@ a {
 .projects-scroller {
   overflow-x: auto;
   overflow-y: hidden;
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   cursor: grab;
   -webkit-overflow-scrolling: touch;
 }
