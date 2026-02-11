@@ -117,6 +117,36 @@ function animateSkillItems() {
   });
 }
 
+// Timeline Interaction
+function setupTimelineInteractions() {
+  const timelineItems = document.querySelectorAll('.timeline-item');
+
+  if (!timelineItems.length) return;
+
+  const setActiveItem = (activeItem) => {
+    timelineItems.forEach(item => {
+      item.classList.toggle('is-active', item === activeItem);
+    });
+  };
+
+  timelineItems.forEach(item => {
+    item.setAttribute('tabindex', '0');
+
+    item.addEventListener('click', () => {
+      setActiveItem(item);
+    });
+
+    item.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        setActiveItem(item);
+      }
+    });
+  });
+
+  setActiveItem(timelineItems[0]);
+}
+
 // Intersection Observer for Animations
 const observerOptions = {
   threshold: 0.1,
@@ -145,6 +175,9 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Animate skill items
   animateSkillItems();
+
+  // Timeline interactions
+  setupTimelineInteractions();
   
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {

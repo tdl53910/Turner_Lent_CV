@@ -462,54 +462,64 @@ a {
   position: relative;
   max-width: 800px;
   margin: 0 auto;
-  padding-left: 30px; /* Add padding to prevent content overlap */
+  padding-left: 36px;
 }
 
 .timeline::before {
   content: '';
   position: absolute;
-  left: 15px; /* Adjusted to align with center of date badges */
+  left: 18px;
   top: 0;
   bottom: 0;
-  width: 2px;
-  background: var(--clr-border);
+  width: 3px;
+  background: linear-gradient(
+    to bottom,
+    rgba(186, 12, 47, 0.15),
+    rgba(186, 12, 47, 0.6),
+    rgba(186, 12, 47, 0.15)
+  );
   z-index: 1;
 }
 
 .timeline-item {
   position: relative;
-  margin-bottom: 3rem;
-  padding-left: 40px; /* Reduced padding since we added to container */
+  margin-bottom: 2.5rem;
+  padding-left: 44px;
+  cursor: pointer;
+  transition: var(--transition);
 }
 
 .timeline-date {
   position: absolute;
-  left: -120px; /* Move date badge to the left of the timeline */
+  left: -130px;
   top: 0;
-  background: var(--clr-primary);
+  background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-primary-dark) 100%);
   color: white;
   padding: 0.5rem 1rem;
   border-radius: var(--radius-sm);
   font-size: 0.9rem;
   font-weight: 500;
-  width: 120px;
+  width: 128px;
   text-align: center;
   z-index: 2;
+  box-shadow: var(--shadow-sm);
+  letter-spacing: 0.2px;
 }
 
 /* Add timeline dot/circle */
 .timeline-item::before {
   content: '';
   position: absolute;
-  left: 9px; /* Adjusted to align with timeline line */
+  left: 11px;
   top: 10px;
-  width: 12px;
-  height: 12px;
-  background: var(--clr-primary);
+  width: 14px;
+  height: 14px;
+  background: var(--clr-card);
   border-radius: 50%;
-  border: 3px solid var(--clr-card);
+  border: 3px solid var(--clr-primary);
   z-index: 3;
-  box-shadow: 0 0 0 2px var(--clr-primary);
+  box-shadow: 0 0 0 4px rgba(186, 12, 47, 0.15);
+  transition: var(--transition);
 }
 
 .timeline-content {
@@ -517,32 +527,55 @@ a {
   padding: 1.5rem;
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
+  border: 1px solid var(--clr-border);
+  border-left: 4px solid transparent;
   transition: var(--transition);
   position: relative;
-  margin-left: 0; /* Ensure content doesn't shift */
+  margin-left: 0;
 }
 
 .timeline-content:hover {
-  transform: translateX(8px);
+  transform: translateX(6px);
   box-shadow: var(--shadow-md);
+  border-left-color: rgba(186, 12, 47, 0.5);
+}
+
+.timeline-item.is-active .timeline-content {
+  transform: translateX(6px);
+  box-shadow: var(--shadow-md);
+  border-left-color: var(--clr-primary);
+}
+
+.timeline-item.is-active::before {
+  background: var(--clr-primary);
+  box-shadow: 0 0 0 6px rgba(186, 12, 47, 0.18);
+}
+
+.timeline-item:focus-visible {
+  outline: none;
+}
+
+.timeline-item:focus-visible .timeline-content {
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.35), var(--shadow-md);
+  border-left-color: var(--clr-accent);
 }
 
 /* Responsive adjustments for timeline */
 @media (max-width: 768px) {
   .timeline {
-    padding-left: 0; /* Remove padding on mobile */
+    padding-left: 0;
   }
   
   .timeline::before {
-    left: 20px; /* Move line closer on mobile */
+    left: 20px;
   }
   
   .timeline-item {
-    padding-left: 60px; /* Increase padding for mobile */
+    padding-left: 60px;
   }
   
   .timeline-date {
-    position: relative; /* Change to relative positioning on mobile */
+    position: relative;
     left: 0;
     top: 0;
     margin-bottom: 1rem;
@@ -551,25 +584,25 @@ a {
   }
   
   .timeline-item::before {
-    left: 14px; /* Adjust dot position for mobile */
+    left: 14px;
   }
   
   .timeline-content:hover {
-    transform: translateY(-4px); /* Change hover effect for mobile */
+    transform: translateY(-4px);
   }
 }
 
 @media (max-width: 480px) {
   .timeline-item {
-    padding-left: 40px; /* Reduce padding on very small screens */
+    padding-left: 40px;
   }
   
   .timeline::before {
-    left: 15px; /* Adjust line position */
+    left: 15px;
   }
   
   .timeline-item::before {
-    left: 9px; /* Adjust dot position */
+    left: 9px;
   }
 }
 /* ============================================================
