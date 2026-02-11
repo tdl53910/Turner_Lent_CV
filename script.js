@@ -177,48 +177,31 @@ function setupProjectsScroller() {
   const scrollByAmount = (direction) => {
     const card = track.querySelector('.project-card');
     const cardWidth = card ? card.offsetWidth + 32 : 360;
-    scroller.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+    const maxScroll = scroller.scrollWidth - scroller.clientWidth;
+    const nextScrollLeft = Math.min(
+      Math.max(scroller.scrollLeft + direction * cardWidth, 0),
+      Math.max(maxScroll, 0)
+    );
+    scroller.scrollTo({ left: nextScrollLeft, behavior: 'smooth' });
   };
 
   if (leftArrow && rightArrow) {
-    leftArrow.addEventListener('click', () => scrollByAmount(-1));
-    rightArrow.addEventListener('click', () => scrollByAmount(1));
+    leftArrow.addEventListener('click', (event) => {
+      event.preventDefault();
+      scrollByAmount(-1);
+    });
+    rightArrow.addEventListener('click', (event) => {
+      event.preventDefault();
+      scrollByAmount(1);
+    });
   }
 
   scroller.addEventListener('scroll', updateArrows);
   window.addEventListener('resize', updateArrows);
+  window.addEventListener('load', updateArrows);
   updateArrows();
 }
 
-// Timeline Interaction
-function setupTimelineInteractions() {
-  const timelineItems = document.querySelectorAll('.timeline-item');
-
-  if (!timelineItems.length) return;
-
-  const setActiveItem = (activeItem) => {
-    timelineItems.forEach(item => {
-      item.classList.toggle('is-active', item === activeItem);
-    });
-  };
-
-  timelineItems.forEach(item => {
-    item.setAttribute('tabindex', '0');
-
-    item.addEventListener('click', () => {
-      setActiveItem(item);
-    });
-
-    item.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        setActiveItem(item);
-      }
-    });
-  });
-
-  setActiveItem(timelineItems[0]);
-}
 
 // Intersection Observer for Animations
 const observerOptions = {
@@ -252,9 +235,22 @@ document.addEventListener('DOMContentLoaded', () => {
   // Projects scroller
   setupProjectsScroller();
 
-  // Timeline interactions
-  setupTimelineInteractions();
-  
+  const scroller = document.querySelector('.projects-scroller');
+  const leftBtn = document.querySelector('.projects-arrow-left');
+  const rightBtn = document.querySelector('.projects-arrow-right');
+
+  if (scroller && leftBtn && rightBtn) {
+    const scrollAmount = 350;
+
+    rightBtn.addEventListener('click', () => {
+      scroller.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+
+    leftBtn.addEventListener('click', () => {
+      scroller.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+  }
+
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {

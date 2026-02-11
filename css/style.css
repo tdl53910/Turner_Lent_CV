@@ -478,14 +478,13 @@ a {
     rgba(186, 12, 47, 0.6),
     rgba(186, 12, 47, 0.15)
   );
-  z-index: 1;
+  z-index: 0;
 }
 
 .timeline-item {
   position: relative;
   margin-bottom: 2.5rem;
   padding-left: 44px;
-  cursor: pointer;
   transition: var(--transition);
 }
 
@@ -540,25 +539,6 @@ a {
   border-left-color: rgba(186, 12, 47, 0.5);
 }
 
-.timeline-item.is-active .timeline-content {
-  transform: translateX(6px);
-  box-shadow: var(--shadow-md);
-  border-left-color: var(--clr-primary);
-}
-
-.timeline-item.is-active::before {
-  background: var(--clr-primary);
-  box-shadow: 0 0 0 6px rgba(186, 12, 47, 0.18);
-}
-
-.timeline-item:focus-visible {
-  outline: none;
-}
-
-.timeline-item:focus-visible .timeline-content {
-  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.35), var(--shadow-md);
-  border-left-color: var(--clr-accent);
-}
 
 /* Responsive adjustments for timeline */
 @media (max-width: 768px) {
@@ -673,18 +653,13 @@ a {
    PROJECTS SECTION
    ============================================================ */
 
-.projects-scroller {
+.projects-wrapper {
   position: relative;
-  overflow-x: auto;
-  overflow-y: hidden;
   padding: 0.5rem 0 1rem;
-  scroll-behavior: smooth;
-  cursor: grab;
-  -webkit-overflow-scrolling: touch;
 }
 
-.projects-scroller::before,
-.projects-scroller::after {
+.projects-wrapper::before,
+.projects-wrapper::after {
   content: '';
   position: absolute;
   top: 0;
@@ -694,14 +669,22 @@ a {
   pointer-events: none;
 }
 
-.projects-scroller::before {
+.projects-wrapper::before {
   left: 0;
   background: linear-gradient(90deg, var(--clr-bg) 0%, rgba(248, 249, 250, 0) 100%);
 }
 
-.projects-scroller::after {
+.projects-wrapper::after {
   right: 0;
   background: linear-gradient(270deg, var(--clr-bg) 0%, rgba(248, 249, 250, 0) 100%);
+}
+
+.projects-scroller {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
 }
 
 .projects-track {
@@ -723,6 +706,7 @@ a {
   transition: var(--transition);
   min-width: 320px;
   max-width: 360px;
+  flex: 0 0 auto;
 }
 
 .project-card:hover {
