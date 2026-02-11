@@ -432,7 +432,11 @@
             <i class="fas fa-project-diagram section-icon"></i>
             Selected Projects
           </h2>
-          <div class="projects-grid">
+          <div class="projects-scroller" aria-label="Project highlights">
+            <button class="projects-arrow projects-arrow-left" type="button" aria-label="Scroll projects left">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="projects-track">
             <div class="project-card" data-aos="fade-up">
               <div class="project-image">
                 <img src="images/AIproject.jpg" alt="AI Research Project">
@@ -493,6 +497,54 @@
                 </p>
               </div>
             </div>
+
+            <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+              <div class="project-image">
+                <img src="images/AIproject.jpg" alt="AI Trading Agent">
+                <div class="project-overlay">
+                  <a href="https://github.com/tdl53910/AI_Trading_Agent" target="_blank" class="project-view-btn">
+                    View Repo
+                  </a>
+                </div>
+              </div>
+              <div class="project-content">
+                <h3>AI Trading Agent</h3>
+                <p class="project-tech">
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">Machine Learning</span>
+                  <span class="tech-tag">Trading</span>
+                </p>
+                <p class="project-description">
+                  Built an AI-driven trading agent to explore market data, signal generation, and strategy evaluation.
+                </p>
+              </div>
+            </div>
+
+            <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+              <div class="project-image">
+                <img src="images/galleryapp.jpg" alt="PollenGuard Hackathon Project">
+                <div class="project-overlay">
+                  <a href="https://github.com/tdl53910/UGAHacks11-PollenGuard" target="_blank" class="project-view-btn">
+                    View Repo
+                  </a>
+                </div>
+              </div>
+              <div class="project-content">
+                <h3>PollenGuard (UGAHacks 11)</h3>
+                <p class="project-tech">
+                  <span class="tech-tag">Hackathon</span>
+                  <span class="tech-tag">Data</span>
+                  <span class="tech-tag">Health</span>
+                </p>
+                <p class="project-description">
+                  Hackathon project focused on helping users understand pollen exposure with data-informed insights.
+                </p>
+              </div>
+            </div>
+            </div>
+            <button class="projects-arrow projects-arrow-right" type="button" aria-label="Scroll projects right">
+              <i class="fas fa-chevron-right"></i>
+            </button>
           </div>
         </div>
       </section>

@@ -117,6 +117,79 @@ function animateSkillItems() {
   });
 }
 
+// Projects Infinite Scroll
+function setupProjectsScroller() {
+  const scroller = document.querySelector('.projects-scroller');
+  const track = document.querySelector('.projects-track');
+  const leftArrow = document.querySelector('.projects-arrow-left');
+  const rightArrow = document.querySelector('.projects-arrow-right');
+
+  if (!track || !scroller) return;
+
+  const cards = Array.from(track.children);
+  if (!cards.length) return;
+
+  let isDragging = false;
+  let startX = 0;
+  let startScrollLeft = 0;
+
+  scroller.addEventListener('pointerdown', (event) => {
+    isDragging = true;
+    startX = event.pageX - scroller.offsetLeft;
+    startScrollLeft = scroller.scrollLeft;
+  });
+
+  scroller.addEventListener('pointerleave', () => {
+    if (!isDragging) return;
+    isDragging = false;
+  });
+
+  scroller.addEventListener('pointerup', () => {
+    if (!isDragging) return;
+    isDragging = false;
+  });
+
+  scroller.addEventListener('pointermove', (event) => {
+    if (!isDragging) return;
+    event.preventDefault();
+    const x = event.pageX - scroller.offsetLeft;
+    const walk = (x - startX) * 1.4;
+    scroller.scrollLeft = startScrollLeft - walk;
+  });
+
+  scroller.addEventListener(
+    'wheel',
+    (event) => {
+      if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+      event.preventDefault();
+      scroller.scrollLeft += event.deltaY;
+    },
+    { passive: false }
+  );
+
+  const updateArrows = () => {
+    if (!leftArrow || !rightArrow) return;
+    leftArrow.disabled = scroller.scrollLeft <= 0;
+    const maxScroll = scroller.scrollWidth - scroller.clientWidth;
+    rightArrow.disabled = scroller.scrollLeft >= maxScroll - 1;
+  };
+
+  const scrollByAmount = (direction) => {
+    const card = track.querySelector('.project-card');
+    const cardWidth = card ? card.offsetWidth + 32 : 360;
+    scroller.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+  };
+
+  if (leftArrow && rightArrow) {
+    leftArrow.addEventListener('click', () => scrollByAmount(-1));
+    rightArrow.addEventListener('click', () => scrollByAmount(1));
+  }
+
+  scroller.addEventListener('scroll', updateArrows);
+  window.addEventListener('resize', updateArrows);
+  updateArrows();
+}
+
 // Timeline Interaction
 function setupTimelineInteractions() {
   const timelineItems = document.querySelectorAll('.timeline-item');
@@ -175,6 +248,9 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Animate skill items
   animateSkillItems();
+
+  // Projects scroller
+  setupProjectsScroller();
 
   // Timeline interactions
   setupTimelineInteractions();

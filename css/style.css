@@ -672,10 +672,47 @@ a {
 /* ============================================================
    PROJECTS SECTION
    ============================================================ */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+.projects-scroller {
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.5rem 0 1rem;
+  scroll-behavior: smooth;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+}
+
+.projects-scroller::before,
+.projects-scroller::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.projects-scroller::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--clr-bg) 0%, rgba(248, 249, 250, 0) 100%);
+}
+
+.projects-scroller::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--clr-bg) 0%, rgba(248, 249, 250, 0) 100%);
+}
+
+.projects-track {
+  display: flex;
   gap: 2rem;
+  width: max-content;
+  padding: 0 3.5rem;
+}
+
+.projects-scroller:active {
+  cursor: grabbing;
 }
 
 .project-card {
@@ -684,6 +721,8 @@ a {
   overflow: hidden;
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
+  min-width: 320px;
+  max-width: 360px;
 }
 
 .project-card:hover {
@@ -743,6 +782,44 @@ a {
 
 .project-content {
   padding: 1.5rem;
+}
+
+.projects-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: var(--clr-card);
+  color: var(--clr-primary);
+  box-shadow: var(--shadow-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.projects-arrow:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.projects-arrow:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.projects-arrow-left {
+  left: 0.5rem;
+}
+
+.projects-arrow-right {
+  right: 0.5rem;
 }
 
 .project-tech {
