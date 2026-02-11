@@ -8,39 +8,17 @@ const formSuccess = document.getElementById('formSuccess');
 const typewriterElement = document.getElementById('typewriter');
 
 // Typewriter Effect
-const typewriterTexts = [
-  'Computer Science Student',
-  'AI Researcher',
-  'Legal Tech Enthusiast',
-  'Student Leader'
-];
-let textIndex = 0;
 let charIndex = 0;
-let isDeleting = false;
-let isEnd = false;
 
 function typeWriter() {
-  const currentText = typewriterTexts[textIndex];
-  
-  if (isDeleting) {
-    typewriterElement.textContent = currentText.substring(0, charIndex - 1);
-    charIndex--;
-  } else {
-    typewriterElement.textContent = currentText.substring(0, charIndex + 1);
-    charIndex++;
-  }
-  
-  if (!isDeleting && charIndex === currentText.length) {
-    isEnd = true;
-    isDeleting = true;
-    setTimeout(typeWriter, 2000);
-  } else if (isDeleting && charIndex === 0) {
-    isDeleting = false;
-    textIndex = (textIndex + 1) % typewriterTexts.length;
-    setTimeout(typeWriter, 500);
-  } else {
-    const speed = isDeleting ? 50 : 100;
-    setTimeout(typeWriter, isEnd ? speed : speed);
+  if (!typewriterElement) return;
+  const fullText = typewriterElement.getAttribute('data-text') || '';
+
+  typewriterElement.textContent = fullText.substring(0, charIndex + 1);
+  charIndex++;
+
+  if (charIndex < fullText.length) {
+    setTimeout(typeWriter, 90);
   }
 }
 
@@ -207,7 +185,9 @@ function setupProjectsScroller() {
 document.addEventListener('DOMContentLoaded', () => {
   // Start typewriter effect
   if (typewriterElement) {
-    setTimeout(typeWriter, 1000);
+    charIndex = 0;
+    typewriterElement.textContent = '';
+    setTimeout(typeWriter, 500);
   }
   
   // Animate skill items
