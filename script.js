@@ -6,6 +6,10 @@ const currentYear = document.getElementById('currentYear');
 const contactForm = document.getElementById('contactForm');
 const formSuccess = document.getElementById('formSuccess');
 const typewriterElement = document.getElementById('typewriter');
+const turnerBotChat = document.getElementById('turnerBotChat');
+const turnerBotForm = document.getElementById('turnerBotForm');
+const turnerBotInput = document.getElementById('turnerBotInput');
+const turnerBotClear = document.getElementById('turnerBotClear');
 
 // Typewriter Effect
 let charIndex = 0;
@@ -142,7 +146,7 @@ function setupProjectsScroller() {
   scroller.addEventListener(
     'wheel',
     (event) => {
-      if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+      if (!event.shiftKey) return;
       event.preventDefault();
       scroller.scrollLeft += event.deltaY;
     },
@@ -234,6 +238,98 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // Turner-bot
+  if (turnerBotChat && turnerBotForm && turnerBotInput) {
+    const resumeContext = `You are Turner-bot, a friendly, professional, and self-aware assistant trained only on Turner D. Lent's public resume data and this site. If a detail is unknown, say so.
+
+Known facts:
+- Turner D. Lent is a Computer Science + AI + Pre-Law student at the University of Georgia.
+- Expected graduation: May 2027.
+- Interests: AI, NLP, machine learning, and the intersection of technology and law.
+- Leadership & roles include: Person of the Arch (POTA), Arch Society; Founder of Franklin Consulting Group; Student Ambassador, Franklin College of Arts and Sciences.
+- Projects include: AI-Driven NLP Research Pipeline; AI Trading Agent; PollenGuard (UGAHacks 11); Coastal Marina Management Website; Franklin Consulting Group Website; CV Website.
+
+Style guidance: concise, warm, and confident. Offer meta-awareness when asked (explain you only know what's on the resume/site).`;
+
+    const messages = [
+      { role: 'system', content: resumeContext }
+    ];
+
+    const addMessage = (content, role) => {
+      const bubble = document.createElement('div');
+      bubble.className = `turner-bot-message ${role}`;
+      bubble.textContent = content;
+      turnerBotChat.appendChild(bubble);
+      turnerBotChat.scrollTop = turnerBotChat.scrollHeight;
+    };
+
+    addMessage('Hi! I’m Turner-bot. Ask me about Turner’s experience, projects, or research focus.', 'assistant');
+
+    const runFallbackResponse = () => {
+      addMessage(
+        'I can’t reach the Turner-bot service right now. For now, I can share what’s on the site: Turner studies CS + AI + Pre-Law at UGA, expected May 2027, and has projects in NLP, trading, and web development.',
+        'assistant'
+      );
+    };
+
+    turnerBotForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const userText = turnerBotInput.value.trim();
+      if (!userText) return;
+
+      addMessage(userText, 'user');
+      turnerBotInput.value = '';
+      messages.push({ role: 'user', content: userText });
+
+      const typingBubble = document.createElement('div');
+      typingBubble.className = 'turner-bot-message assistant';
+      typingBubble.textContent = 'Thinking...';
+      turnerBotChat.appendChild(typingBubble);
+      turnerBotChat.scrollTop = turnerBotChat.scrollHeight;
+
+      try {
+        const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+          ? 'http://localhost:3000/api/turner-bot'
+          : '/api/turner-bot';
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            messages
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error('OpenAI request failed');
+        }
+
+        const data = await response.json();
+        const reply = data.reply?.trim();
+        typingBubble.remove();
+
+        if (reply) {
+          addMessage(reply, 'assistant');
+          messages.push({ role: 'assistant', content: reply });
+        } else {
+          addMessage('I ran into an issue generating a response. Please try again.', 'assistant');
+        }
+      } catch (error) {
+        typingBubble.remove();
+        addMessage('I couldn’t reach the Turner-bot service. Please try again later.', 'assistant');
+      }
+    });
+
+    if (turnerBotClear) {
+      turnerBotClear.addEventListener('click', () => {
+        turnerBotChat.innerHTML = '';
+        messages.splice(1, messages.length - 1);
+        addMessage('Hi! I’m Turner-bot. Ask me about Turner’s experience, projects, or research focus.', 'assistant');
+      });
+    }
+  }
 });
 
 // Add active class to current section in navigation

@@ -1,0 +1,7 @@
+{
+  "buildCommand": "npm install",
+  "public": true,
+  "env": {
+    "OPENAI_API_KEY": "@openai_api_key"
+  }
+}
