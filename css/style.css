@@ -1345,6 +1345,15 @@ a {
     width: 100px;
     font-size: 0.8rem;
   }
+
+  .scroll-top {
+    display: none;
+  }
+
+  .projects-wrapper::before,
+  .projects-wrapper::after {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {
