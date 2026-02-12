@@ -23,36 +23,40 @@ function typeWriter() {
 }
 
 // Mobile Navigation Toggle
-hamburger.addEventListener('click', () => {
-  navMenu.classList.toggle('active');
-  hamburger.innerHTML = navMenu.classList.contains('active') 
-    ? '<i class="fas fa-times"></i>' 
-    : '<i class="fas fa-bars"></i>';
-});
-
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-menu a').forEach(link => {
-  link.addEventListener('click', () => {
-    navMenu.classList.remove('active');
-    hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+if (hamburger && navMenu) {
+  hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    hamburger.innerHTML = navMenu.classList.contains('active') 
+      ? '<i class="fas fa-times"></i>' 
+      : '<i class="fas fa-bars"></i>';
   });
-});
+
+  // Close mobile menu when clicking on a link
+  document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('active');
+      hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+    });
+  });
+}
 
 // Scroll to Top Functionality
-window.addEventListener('scroll', () => {
-  if (window.pageYOffset > 300) {
-    scrollTopBtn.classList.add('visible');
-  } else {
-    scrollTopBtn.classList.remove('visible');
-  }
-});
-
-scrollTopBtn.addEventListener('click', () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
+if (scrollTopBtn) {
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+      scrollTopBtn.classList.add('visible');
+    } else {
+      scrollTopBtn.classList.remove('visible');
+    }
   });
-});
+
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+}
 
 // Set Current Year
 if (currentYear) {
