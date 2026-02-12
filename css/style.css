@@ -982,6 +982,12 @@ a {
   font-size: 1.5rem;
 }
 
+.turner-bot-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
 .turner-bot-badge {
   background: var(--clr-primary-light);
   color: var(--clr-primary-dark);
