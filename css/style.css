@@ -1544,6 +1544,16 @@ a {
     align-self: flex-start;
   }
 
+  .turner-bot-chat {
+    min-height: 300px;
+    max-height: 400px;
+  }
+
+  .turner-bot-input-row input {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
   .turner-bot-input-row {
     flex-direction: column;
   }

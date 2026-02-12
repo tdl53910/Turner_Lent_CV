@@ -52,7 +52,7 @@ export default async function handler(req, res) {
   if (blockedTopics.some(topic => latestUserText.includes(topic))) {
     return res.json({
       reply:
-        "I’m designed only to answer questions related to Turner D. Lent’s professional background."
+        "I’m designed only to answer questions related to Turner’s professional background."
     });
   }
 
@@ -74,7 +74,7 @@ BOUNDARIES:
 - You may have friendly conversations, discuss general topics, or answer questions about Turner’s background, but you must not provide information that cannot be directly supported by the verified data.
 
 REFUSAL RESPONSE:
-"I’m designed only to answer questions related to Turner D. Lent’s professional background."
+"I’m designed only to answer questions related to Turner’s professional background."
 
 NO HALLUCINATION RULE:
 You must never invent:
