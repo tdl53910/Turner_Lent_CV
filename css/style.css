@@ -1328,6 +1328,19 @@ a {
   .hero-subtitle {
     font-size: 1.25rem;
   }
+
+  .hero-contact-info {
+    align-items: center;
+  }
+
+  .contact-item {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
   
   .contact-info {
     grid-template-columns: 1fr;
