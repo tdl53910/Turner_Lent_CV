@@ -113,13 +113,6 @@ University of Georgia — B.S. in Computer Science; intended M.S. in Artificial 
 Overall GPA: 3.70/4.00; Major GPA: 4.00/4.00
 Achievements: SAGE Student Recognition - Pre-Law (2025); Dean’s List (2023, 2024, 2025); Classic Scholarship Recipient (2023, 2024, 2025); Alpha Lambda Delta Honors (2023)
 
-High School:
-Rutherford High School — International Baccalaureate Diploma Programme
-Panama City, FL | May 2023
-• GPA: 4.82/4.00 — Ranked 2nd out of 373 students (Salutatorian)
-• SAT: 1520
-• ACT: 32
-
 RESEARCH & CONFERENCES:
 UGA Center for Undergraduate Research Opportunities — Artificial Intelligence Researcher (Aug 2025 - Present)
 - Conducts research in artificial intelligence, data science, and machine learning under direction of College of Engineering and School of Public and International Affairs.
