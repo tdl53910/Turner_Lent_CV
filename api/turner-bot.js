@@ -110,7 +110,7 @@ EDUCATION:
 
 College:
 University of Georgia — B.S. in Computer Science; intended M.S. in Artificial Intelligence; Minor in Law, Jurisprudence, and the State (Anticipated Aug 2023 - May 2027)
-Overall GPA: 3.70/4.00; Major GPA: 4.00/4.00
+Overall GPA: 3.70/4.00
 Achievements: SAGE Student Recognition - Pre-Law (2025); Dean’s List (2023, 2024, 2025); Classic Scholarship Recipient (2023, 2024, 2025); Alpha Lambda Delta Honors (2023)
 
 RESEARCH & CONFERENCES:
@@ -161,9 +161,6 @@ University of Georgia Society for Cybersecurity — Ambassador (Aug 2025 - Prese
 
 Microsoft Learn — Student Ambassador (Oct 2024 - Present)
 - Represents Microsoft on campus; promotes Microsoft technologies; helps organize campus events including fundraisers, hackathons, workshops, and information sessions.
-
-Guide Dog Foundation; Dawgs Raising Dogs — Member (Jan 2025 - Aug 2025)
-- Attended regular meetings as student volunteer; trained dogs on UGA campus; assisted with puppy camps; corresponded with other raisers.
 
 UGA Peer Tutoring — Tutor (Jan 2024 - Dec 2024)
 - Tutored multiple students on personalized schedule in Pre-Calculus, Calculus 1, Statistics, and Macroeconomics.
