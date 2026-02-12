@@ -1529,6 +1529,21 @@ a {
     padding: 1.5rem;
   }
 
+  .turner-bot-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .turner-bot-title {
+    margin-bottom: 0;
+  }
+
+  .turner-bot-badge {
+    margin-left: 0;
+    align-self: flex-start;
+  }
+
   .turner-bot-input-row {
     flex-direction: column;
   }
