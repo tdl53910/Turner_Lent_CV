@@ -463,6 +463,91 @@ a {
   width: 100%;
 }
 
+.timeline-mobile {
+  display: none;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.experience-accordion {
+  background: var(--clr-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 1rem;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.experience-accordion:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.experience-accordion summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  position: relative;
+}
+
+.experience-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--clr-secondary);
+}
+
+.accordion-date {
+  background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-primary-dark) 100%);
+  color: #fff;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.accordion-body {
+  padding: 0 1.25rem 1.25rem;
+}
+
+.accordion-body ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.2rem;
+  color: var(--clr-text-light);
+}
+
+.accordion-body li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.accordion-body li:last-child {
+  margin-bottom: 0;
+}
+
+.experience-accordion summary::after {
+  content: '\f078';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  color: var(--clr-primary);
+  margin-left: auto;
+  transition: var(--transition);
+}
+
+.experience-accordion[open] summary::after {
+  transform: rotate(180deg);
+}
+
 .experience-section .container {
   max-width: 1360px;
 }
@@ -562,46 +647,54 @@ a {
   border-left-color: rgba(186, 12, 47, 0.5);
 }
 
+.timeline-item:hover .timeline-content {
+  transform: translateX(6px) translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
 
 /* Responsive adjustments for timeline */
 @media (max-width: 768px) {
+  .experience-section .section-title {
+    justify-content: flex-start;
+    text-align: left;
+    gap: 0.75rem;
+  }
+
+  .timeline-desktop {
+    display: none;
+  }
+
+  .timeline-mobile {
+    display: block;
+  }
+
   .timeline {
     --timeline-date-col: 0px;
     --timeline-line-x: 20px;
     background-position: 20px 0;
   }
-  
+
   .timeline-item {
     display: block;
     padding-left: 60px;
   }
-  
+
   .timeline-date {
+    transform: none;
     margin-bottom: 1rem;
     width: auto;
     display: inline-block;
   }
-  
-  .timeline-content:hover {
-    transform: translateY(-4px);
-  }
-}
 
-@media (max-width: 480px) {
-  .timeline-item {
-    padding-left: 40px;
+  .timeline-content {
+    max-width: none;
   }
-
-  .timeline {
-    --timeline-line-x: 15px;
-  }
-}
-/* ============================================================
 
   .timeline-item::before {
     content: '';
     position: absolute;
-    left: 14px;
+    left: calc(var(--timeline-line-x) - 8px);
     top: 10px;
     width: 14px;
     height: 14px;
@@ -616,6 +709,27 @@ a {
   .timeline::after {
     display: none;
   }
+
+  .timeline-content:hover {
+    transform: translateY(-4px);
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline-item {
+    padding-left: 40px;
+  }
+
+  .timeline {
+    --timeline-line-x: 15px;
+    background-position: 15px 0;
+  }
+
+  .timeline-item::before {
+    left: calc(var(--timeline-line-x) - 8px);
+  }
+}
+/* ============================================================
    SKILLS SECTION
    ============================================================ */
 .skills-grid {
@@ -625,12 +739,7 @@ a {
 }
 
 .skill-category {
-    background-position: 15px 0;
   background: var(--clr-card);
-
-  .timeline-item::before {
-    left: 9px;
-  }
   padding: 1.5rem;
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
