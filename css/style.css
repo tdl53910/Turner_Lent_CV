@@ -1388,7 +1388,10 @@ a {
   
   .hero-actions {
     flex-direction: column;
-    align-items: center;
+  }
+
+  .hero-actions .btn {
+    justify-content: center;
   }
   
   .cta-card {
