@@ -568,6 +568,7 @@ a {
   .timeline {
     --timeline-date-col: 0px;
     --timeline-line-x: 20px;
+    background-position: 20px 0;
   }
   
   .timeline-item {
@@ -596,6 +597,25 @@ a {
   }
 }
 /* ============================================================
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 10px;
+    width: 14px;
+    height: 14px;
+    background: var(--clr-card);
+    border-radius: 50%;
+    border: 3px solid var(--clr-primary);
+    box-shadow: 0 0 0 4px rgba(186, 12, 47, 0.15);
+    z-index: 3;
+  }
+
+  .timeline::before,
+  .timeline::after {
+    display: none;
+  }
    SKILLS SECTION
    ============================================================ */
 .skills-grid {
@@ -605,7 +625,12 @@ a {
 }
 
 .skill-category {
+    background-position: 15px 0;
   background: var(--clr-card);
+
+  .timeline-item::before {
+    left: 9px;
+  }
   padding: 1.5rem;
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
