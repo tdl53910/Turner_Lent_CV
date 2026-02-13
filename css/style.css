@@ -1351,6 +1351,12 @@ a {
   font-size: 0.9rem;
 }
 
+.footer-disclaimer {
+  font-size: 0.85rem;
+  color: var(--clr-text-light);
+  margin-top: 0.35rem;
+}
+
 /* ============================================================
    SCROLL TO TOP BUTTON
    ============================================================ */
