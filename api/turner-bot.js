@@ -27,11 +27,14 @@ export default async function handler(req, res) {
     return res.status(400).json({ reply: 'Invalid message payload.' });
   }
 
-  // Only keep user messages (prevents injection attacks)
-  const userMessages = messages.filter(m => m.role === "user");
+  // Keep ALL messages for context (don't filter)
+  // Only filter out system prompts that might be injected
+  const filteredMessages = messages.filter(m => 
+    m.role === "user" || m.role === "assistant"
+  );
 
   const latestUserText =
-    userMessages[userMessages.length - 1]?.content?.toLowerCase() || "";
+    filteredMessages[filteredMessages.length - 1]?.content?.toLowerCase() || "";
 
   // Much more limited block list - only truly harmful/inappropriate topics
   const blockedTopics = [
@@ -46,8 +49,7 @@ export default async function handler(req, res) {
   // Only block truly inappropriate content - otherwise let the AI try to connect it
   if (blockedTopics.some(topic => latestUserText.includes(topic))) {
     return res.json({
-      reply:
-        "I can only discuss topics that can be connected to Turner's professional background and interests."
+      reply: "I can only discuss topics related to Turner's professional background and interests."
     });
   }
 
@@ -55,8 +57,11 @@ export default async function handler(req, res) {
 ROLE:
 You are Turner-bot, an AI assistant deployed on Turner Lent’s official website. Your purpose is to help visitors learn about Turner while engaging in natural conversation.
 
+IMPORTANT: You have access to the FULL conversation history. Remember what was said earlier in the conversation and refer back to it naturally. If you just offered something and the user says "Yes" or "Tell me more," you should remember what you offered and continue that thread.
+
 CONVERSATION APPROACH:
 - Be conversational and friendly, not robotic.
+- Maintain context across the conversation - remember previous exchanges.
 - When asked about general topics (technology, AI, research, law, leadership, etc.), discuss them enthusiastically while connecting them back to Turner's experience, skills, or interests where relevant.
 - If the topic is completely unrelated (celebrity gossip, sports scores, etc.), politely steer the conversation toward Turner's professional background.
 - Never say "I'm designed only to answer questions about Turner" - instead, find creative ways to relate the conversation back to his work.
@@ -205,9 +210,10 @@ ADDITIONAL CONTEXT:
 - Website: https://turnerlent.com
 `;
 
-  const openAIMessages = [
+  // Build the full conversation history
+  const conversationHistory = [
     { role: "system", content: resumeContext },
-    ...userMessages
+    ...filteredMessages  // Include ALL previous messages
   ];
 
   try {
@@ -221,9 +227,9 @@ ADDITIONAL CONTEXT:
         },
         body: JSON.stringify({
           model: "gpt-4o-mini",
-          messages: openAIMessages,
-          temperature: 0.4,  // Slightly increased for more conversational variety
-          max_tokens: 500     // Slightly increased for more detailed responses
+          messages: conversationHistory,  // Send full history, not just latest
+          temperature: 0.4,
+          max_tokens: 500
         })
       }
     );
